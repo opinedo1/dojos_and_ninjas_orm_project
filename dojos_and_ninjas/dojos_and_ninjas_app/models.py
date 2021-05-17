@@ -13,6 +13,7 @@ class Ninja(models.Model):
     dojo_id = models.ForeignKey(Dojo, related_name="ninjas", on_delete=models.CASCADE)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
+    desc = models.TextField(default="old dojo")
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     
