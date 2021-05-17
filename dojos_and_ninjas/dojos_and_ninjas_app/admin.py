@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-# from .models import Dojo, Ninja
+from .models import Dojo, Ninja
 # # Register your models here.
-# admin.site.register(Dojo)
-# admin.site.register(Ninja)
+admin.site.register(Dojo)
+admin.site.register(Ninja)
