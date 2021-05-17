@@ -47,3 +47,7 @@ for n in Dojo.objects.last().ninjas.all():
 # Display our ninjas name, Retrive dojo of the last ninja
 Ninja.objects.last().first_name + " " + Ninja.objects.last().last_name
 Ninja.objects.last().dojo_id.name
+
+# Add one final dojo with the added description field. Print his name for verification.
+dojo7 = Dojo.objects.create(name='Final',city='Ennicity',state='California',desc='One of the most ancient and talented instructor to have ever existed in this civilization.')
+Dojo.objects.all().last().name

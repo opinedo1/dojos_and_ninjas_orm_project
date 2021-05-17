@@ -40,3 +40,12 @@ Ninja.objects.last().first_name + " " Ninja.objects.last().last_name
 Ninja.objects.last().first_name + " " + Ninja.objects.last().last_name
 Ninja.objects.last().dojo_id.name
 %history -f session_query_log.txt
+dojo7 = Dojo.objects.create(name='Final',city='Ennicity',state='California',desc='One of the most ancient and talented instructor to have ever existed in this civilization.')
+from dojos_and_ninjas_app import Dojo, Ninja
+from dojos_and_ninjas_app import Dojo
+from dojos_and_ninjas_app.models import Dojo,Ninja
+dojo7 = Dojo.objects.create(name='Final',city='Ennicity',state='California',desc='One of the most ancient and talented instructor to have ever existed in this civilization.')
+Dojo.objects.all().last()
+Dojo.objects.all()
+Dojo.objects.all().last().name
+%history -f app.txt
