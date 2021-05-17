@@ -1,0 +1,49 @@
+from dojos_and_ninjas_app.models import Dojo
+from dojos_and_ninjas_app.models import Ninja
+
+# Create 3 dojos
+dojo1 = Dojo.objects.create(name='Zane',city='Santa Clara',state='California')
+dojo2 = Dojo.objects.create(name='Naur',city='San Jose',state='California')
+dojo3 = Dojo.objects.create(name='Xavier',city='Fremont',state='California')
+
+# deletes all dojos in Dojo
+for  d in Dojo.objects.all():
+    d.delete()
+
+# Verify deletion
+Dojo.objects.all()
+
+# Create 3 more dojos
+dojo4 = Dojo.objects.create(name='Foo',city='Los Angles',state='California')
+dojo5 = Dojo.objects.create(name='Bar',city='San Diego',state='California')
+dojo6 = Dojo.objects.create(name='Baz',city='Fairfield',state='California')
+
+this_dojo = Dojo.objects.get(id=4)
+this_dojo.name
+
+#create ninjas belonging to dojo4
+ninja1 = Ninja.objects.create(first_name='Star',last_name='Lang',dojo_id=this_dojo)
+ninja2 = Ninja.objects.create(first_name='Trie',last_name='Tent',dojo_id=this_dojo)
+ninja3 = Ninja.objects.create(first_name='Oreo',last_name='Fill',dojo_id=this_dojo)
+
+ninja4 = Ninja.objects.create(first_name='Sewr',last_name='Wet',dojo_id=Dojo.objects.get(id=6))
+ninja5 = Ninja.objects.create(first_name='Fone',last_name='All',dojo_id=Dojo.objects.get(id=6))
+ninja6 = Ninja.objects.create(first_name='Mone',last_name='Lite',dojo_id=Dojo.objects.get(id=6))
+
+ninja7 = Ninja.objects.create(first_name='Stan',last_name='Curl',dojo_id=Dojo.objects.get(id=7))
+ninja8 = Ninja.objects.create(first_name='Cand',last_name='Kit',dojo_id=Dojo.objects.get(id=7))
+ninja9 = Ninja.objects.create(first_name='Wood',last_name='Oak',dojo_id=Dojo.objects.get(id=7))
+
+# Retrive all ninjas from first dojo and print names
+for n in Dojo.objects.first().ninjas.all():
+    str = "{} {}".format(n.first_name, n.last_name)
+    print(str)
+
+# Retrive all ninjas from last dojo and print names
+for n in Dojo.objects.last().ninjas.all():
+    str = "{} {}".format(n.first_name, n.last_name)
+    print(str)
+
+# Display our ninjas name, Retrive dojo of the last ninja
+Ninja.objects.last().first_name + " " + Ninja.objects.last().last_name
+Ninja.objects.last().dojo_id.name
