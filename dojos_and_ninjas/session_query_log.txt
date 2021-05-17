@@ -1,0 +1,42 @@
+from dojos_and_ninjas_app.models import Ninja
+dojo2 = Dojo.objects.create(name='Naur',city='San Jose',state='California')
+from dojos_and_ninjas_app.models import Dojo
+dojo1 = Dojo.objects.create(name='Zane',city='Santa Clara',state='California')
+dojo2 = Dojo.objects.create(name='Naur',city='San Jose',state='California')
+dojo3 = Dojo.objects.create(name='Xavier',city='Fremont',state='California')
+for  d in Dojo.objects.all():
+    d.delete()
+Dojo.objects.all()
+dojo4 = Dojo.objects.create(name='Foo',city='Los Angles',state='California')
+dojo5 = Dojo.objects.create(name='Bar',city='San Diego',state='California')
+dojo6 = Dojo.objects.create(name='Baz',city='Fairfield',state='California')
+Dojo.objects.all()
+this_dojo = Dojo.objects.get(id=4)
+this_dojo = Dojo.objects.get(id=5)
+this_dojo.name
+Ninja.objects.create(first_name='Star',last_name='Lang',dojo_id=this_dojo)
+ninja1 = Ninja.objects.all().first()
+ninja2 = Ninja.objects.create(first_name='Trie',last_name='Tent',dojo_id=this_dojo)
+ninja3 = Ninja.objects.create(first_name='Oreo',last_name='Fill',dojo_id=this_dojo)
+ninja4 = Ninja.objects.create(first_name='Sewr',last_name='Wet',dojo_id=Dojo.objects.get(id=6))
+ninja5 = Ninja.objects.create(first_name='Fone',last_name='All',dojo_id=Dojo.objects.get(id=6))
+ninja6 = Ninja.objects.create(first_name='Mone',last_name='Lite',dojo_id=Dojo.objects.get(id=6))
+ninja7 = Ninja.objects.create(first_name='Stan',last_name='Curl',dojo_id=Dojo.objects.get(id=7))
+ninja8 = Ninja.objects.create(first_name='Cand',last_name='Kit',dojo_id=Dojo.objects.get(id=7))
+ninja9 = Ninja.objects.create(first_name='Wood',last_name='Oak',dojo_id=Dojo.objects.get(id=7))
+Dojo.objects.first().ninjas.all()
+dojo1_nin = Dojo.objects.first().ninjas.all()
+for n in dojo1_nin:
+    str = "{} {}".format(n.first_name, n.last_name)
+    print(str)
+for n in Dojo.objects.all().last():
+    str = "{} {}".format(n.first_name, n.last_name)
+    print(str)
+for n in Dojo.objects.last().ninjas.all():
+    str = "{} {}".format(n.first_name, n.last_name)
+    print(str)
+Ninja.objects.last().first_name
+Ninja.objects.last().first_name + " " Ninja.objects.last().last_name
+Ninja.objects.last().first_name + " " + Ninja.objects.last().last_name
+Ninja.objects.last().dojo_id.name
+%history -f session_query_log.txt
